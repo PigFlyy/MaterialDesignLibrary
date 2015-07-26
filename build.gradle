@@ -5,9 +5,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.+'
+        classpath 'com.android.tools.build:gradle:1.2.3'
         classpath 'org.codehaus.groovy:groovy-backports-compat23:2.3.5'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
         classpath 'com.github.dcendents:android-maven-plugin:1.2'
     }
 }
@@ -17,8 +17,5 @@ allprojects {
         jcenter()
         mavenCentral()
     }
-
-    group = "com.github.navasmdc"
-    version = "1.5"
 }
 

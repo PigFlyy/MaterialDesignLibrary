@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'ca.hoogit'
 version = '1.0.1'
@@ -31,14 +33,68 @@ android {
     }
 }
 
-def siteUrl = 'https://github.com/jordond/android-HoloCircularProgressBar'
-def gitUrl = 'https://github.com/jordond/android-HoloCircularProgressBar.git'
+def siteUrl = 'https://github.com/jordond/MaterialDesignLibrary'
+def gitUrl = 'https://github.com/jordond/MaterialDesignLibrary.git'
 
 dependencies {
     compile 'com.nineoldandroids:library:2.4.+'
     compile 'com.android.support:support-v4:21.+'
 }
 
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "MaterialDesignLibrary"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+
+                name 'A forked version of the MaterialDesignLibrary'
+                url siteUrl
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'jordond'
+                        name 'Jordon de Hoog'
+                        email 'jordondehoog@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+}
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -62,5 +118,8 @@ artifacts {
 
 task findConventions << {
     println project.getConvention()
+}
+
+task wrapper(type: Wrapper) {
 }
 
