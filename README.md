@@ -2,6 +2,26 @@
 
 # Material Design Android Library
 
+##Edited July 26 2015
+- Fixed attribute naming conflicts with Google's new Design support library
+- Fixed the landscape mode for the color chooser
+- Uploaded to bintray for use in gradle
+
+[ ![Download](https://api.bintray.com/packages/jordond/maven/MaterialDesignLibrary/images/download.svg) ](https://bintray.com/jordond/maven/MaterialDesignLibrary/_latestVersion)
+
+```groovy
+repositories {
+    maven {
+        url  "http://dl.bintray.com/jordond/maven" 
+    }
+}
+
+dependencies {
+    compile 'ca.hoogit:materialdesign:1.0.+'
+    compile 'com.nineoldandroids:library:2.4.+'
+}
+```
+
 <a href="https://play.google.com/store/apps/details?id=com.gc.demomaterialdesign">
   <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
 </a>
