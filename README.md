@@ -2,6 +2,8 @@
 
 # Material Design Android Library
 
+##Edited Jan 11 2016
+- Fixed nineoldandroids dependency for newer gradle/android studio
 ##Edited July 26 2015
 - Fixed attribute naming conflicts with Google's new Design support library
 - Fixed the landscape mode for the color chooser
@@ -17,8 +19,8 @@ repositories {
 }
 
 dependencies {
-    compile 'ca.hoogit:materialdesign:1.0.+'
-    compile 'com.nineoldandroids:library:2.4.+'
+    compile 'ca.hoogit:materialdesign:1.0.2'
+    compile 'com.nineoldandroids:library:2.4.0'
 }
 ```
 

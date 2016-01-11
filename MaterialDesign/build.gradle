@@ -3,7 +3,7 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'ca.hoogit'
-version = '1.0.1'
+version = '1.0.2'
 
 android {
     compileSdkVersion 19
@@ -28,8 +28,8 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 21
-        versionCode 7
-        versionName '1.5'
+        versionCode 8
+        versionName '1.6'
     }
 }
 
@@ -37,7 +37,7 @@ def siteUrl = 'https://github.com/jordond/MaterialDesignLibrary'
 def gitUrl = 'https://github.com/jordond/MaterialDesignLibrary.git'
 
 dependencies {
-    compile 'com.nineoldandroids:library:2.4.+'
+    compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:support-v4:21.+'
 }
 
