@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compile 'ca.hoogit:materialdesign:1.0.2'
+    compile 'ca.hoogit:materialdesign:1.0.3'
     compile 'com.nineoldandroids:library:2.4.0'
 }
 ```
