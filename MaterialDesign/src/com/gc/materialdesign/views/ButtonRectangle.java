@@ -14,12 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ButtonRectangle extends Button {
-	
-	TextView textButton;
-	
+
 	int paddingTop,paddingBottom, paddingLeft, paddingRight;
-	
-	
+
 	public ButtonRectangle(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setDefaultProperties();
@@ -35,11 +32,11 @@ public class ButtonRectangle extends Button {
 		super.background = R.drawable.background_button_rectangle;
 		super.setDefaultProperties();
 	}
-	
-	
+
+
 	// Set atributtes of XML to View
 	protected void setAttributes(AttributeSet attrs){
-		
+
 		//Set background Color
 		// Color by resource
 		int bacgroundColor = attrs.getAttributeResourceValue(ANDROIDXML,"background",-1);
@@ -52,7 +49,7 @@ public class ButtonRectangle extends Button {
 			if (background != -1)
 				setBackgroundColor(background);
 		}
-		
+
 		// Set Padding
 		String value = attrs.getAttributeValue(ANDROIDXML,"padding");
 //		if(value != null){
@@ -71,8 +68,8 @@ public class ButtonRectangle extends Button {
 //			value = attrs.getAttributeValue(ANDROIDXML,"paddingBottom");
 //			paddingBottom = (value == null) ? paddingBottom : (int) Float.parseFloat(value.replace("dip", ""));
 //		}
-		
-		
+
+
 		// Set text button
 		String text = null;
 		int textResource = attrs.getAttributeResourceValue(ANDROIDXML,"text",-1);
@@ -82,14 +79,13 @@ public class ButtonRectangle extends Button {
 			text = attrs.getAttributeValue(ANDROIDXML,"text");
 		}
 		if(text != null){
-			textButton = new TextView(getContext());
 			textButton.setText(text);
 			textButton.setTextColor(Color.WHITE);
 			textButton.setTypeface(null, Typeface.BOLD);
-			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 			params.setMargins(Utils.dpToPx(5, getResources()), Utils.dpToPx(5, getResources()), Utils.dpToPx(5, getResources()), Utils.dpToPx(5, getResources()));
-			textButton.setLayoutParams(params);			
+			textButton.setLayoutParams(params);
 			addView(textButton);
 //					FrameLayout.LayoutParams params = (LayoutParams) textView.getLayoutParams();
 //					params.width = getWidth();
@@ -108,17 +104,17 @@ public class ButtonRectangle extends Button {
 			}
 			int[] array = {android.R.attr.textSize};
 			TypedArray values = getContext().obtainStyledAttributes(attrs, array);
-	        float textSize = values.getDimension(0, -1);
-	        values.recycle();
-	        if(textSize != -1)
-	        	textButton.setTextSize(textSize);
-			
+			float textSize = values.getDimension(0, -1);
+			values.recycle();
+			if(textSize != -1)
+				textButton.setTextSize(textSize);
+
 		}
-		
+
 		rippleSpeed = attrs.getAttributeFloatValue(MATERIALDESIGNXML,
 				"rippleSpeed", Utils.dpToPx(6, getResources()));
 	}
-	
+
 //	/**
 //	 * Center text in button
 //	 */
@@ -131,7 +127,7 @@ public class ButtonRectangle extends Button {
 //		textButton.setY(getHeight()/2-textButton.getHeight()/2 - paddingLeft + paddingRight);
 //		txtCenter = true;
 //	}
-	
+
 	Integer height;
 	Integer width;
 	@Override
@@ -146,5 +142,5 @@ public class ButtonRectangle extends Button {
 			invalidate();
 		}
 	}
-	
+
 }
