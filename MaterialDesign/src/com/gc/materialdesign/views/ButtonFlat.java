@@ -13,14 +13,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ButtonFlat extends Button {
-	
-	TextView textButton;
 
 	public ButtonFlat(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		
+
 	}
-	
+
 	protected void setDefaultProperties(){
 		minHeight = 36;
 		minWidth = 88;
@@ -42,7 +40,6 @@ public class ButtonFlat extends Button {
 			text = attrs.getAttributeValue(ANDROIDXML,"text");
 		}
 		if(text != null){
-			textButton = new TextView(getContext());
 			textButton.setText(text.toUpperCase());
 			textButton.setTextColor(backgroundColor);
 			textButton.setTypeface(null, Typeface.BOLD);
@@ -62,13 +59,13 @@ public class ButtonFlat extends Button {
 				setBackgroundColor(background);
 		}
 	}
-	
-	
+
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		if (x != -1) {
-			
+
 			Paint paint = new Paint();
 			paint.setAntiAlias(true);
 			paint.setColor(makePressColor());
@@ -83,23 +80,23 @@ public class ButtonFlat extends Button {
 					onClickListener.onClick(this);
 			}
 			invalidate();
-		}		
-		
+		}
+
 	}
-	
+
 	/**
 	 * Make a dark color to ripple effect
 	 * @return
 	 */
 	@Override
 	protected int makePressColor(){
-		return Color.parseColor("#88DDDDDD");	
+		return Color.parseColor("#88DDDDDD");
 	}
-	
+
 	public void setText(String text){
 		textButton.setText(text.toUpperCase());
 	}
-	
+
 	// Set color of background
 	public void setBackgroundColor(int color){
 		backgroundColor = color;
@@ -112,9 +109,9 @@ public class ButtonFlat extends Button {
 	public TextView getTextView() {
 		return textButton;
 	}
-	
+
 	public String getText(){
-        	return textButton.getText().toString();
- 	}
+		return textButton.getText().toString();
+	}
 
 }
